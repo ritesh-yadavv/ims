@@ -1,0 +1,67 @@
+import React, { useState } from 'react';
+import AccountAccess from "../component/Profile/accountAccess";
+import BankInformation from "../component/Profile/bankInformation";
+import Verification from "../component/Profile/verification";
+import PersonalInformation from "../component/Profile/personalInformation";
+import { FaUser, FaCheckCircle, FaUniversity, FaLock } from 'react-icons/fa';
+
+const Header = () => {
+  const [activeComponent, setActiveComponent] = useState("PersonalInformation");
+
+  const renderComponent = () => {
+    switch (activeComponent) {
+      case 'PersonalInformation':
+        return <PersonalInformation />;
+      case 'Verification':
+        return <Verification />;
+      case 'BankInformation':
+        return <BankInformation />;
+      case 'AccountAccess':
+        return <AccountAccess />;
+      default:
+        return <PersonalInformation />;
+    }
+  };
+
+  return (
+    <div >
+      <div className="flex text-sm bg-[#F6F6F6] text-[#9AB2CB] font-jakarta font-normal items-start justify-between p-0 pl-4 pr-4 border-b-4 rounded-t">
+        <h3
+          className={`flex justify-center items-center cursor-pointer p-2 rounded hover:bg-[#14509F] hover:text-white ${activeComponent === 'PersonalInformation' && 'bg-[#14509F] text-white'}`}
+          onClick={() => setActiveComponent('PersonalInformation')}
+        >
+          <FaUser className="mr-2" />
+          <span className="hidden md:block">Profile Information</span>
+        </h3>
+        <h3
+          className={`flex justify-center items-center cursor-pointer p-2 rounded hover:bg-[#14509F] hover:text-white ${activeComponent === 'Verification' && 'bg-[#14509F] text-white'}`}
+          onClick={() => setActiveComponent('Verification')}
+        >
+          <FaCheckCircle className="mr-2" />
+          <span className="hidden md:block">Verification</span>
+        </h3>
+        <h3
+          className={`flex justify-center items-center cursor-pointer p-2 rounded hover:bg-[#14509F] hover:text-white ${activeComponent === 'BankInformation' && 'bg-[#14509F] text-white'}`}
+          onClick={() => setActiveComponent('BankInformation')}
+        >
+          <FaUniversity className="mr-2" />
+          <span className="hidden md:block"> Bank Information</span>
+        </h3>
+        <h3
+        className={`flex justify-center items-center cursor-pointer p-2 rounded hover:bg-[#14509F] hover:text-white ${activeComponent === 'AccountAccess' && 'bg-[#14509F] text-white'}`}
+          onClick={() => setActiveComponent('AccountAccess')}
+        >
+          <FaLock className="mr-2" />
+          <span className="hidden md:block">Account Access</span>
+        </h3>
+      </div>
+      <div>
+        {renderComponent()}
+      </div>
+    </div>
+  );
+}
+
+
+
+export default Header;
