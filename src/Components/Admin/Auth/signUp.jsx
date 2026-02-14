@@ -131,8 +131,8 @@ const SignUp = () => {
 
         {/* Footer Links */}
         <div className="mt-6 text-sm text-gray-500 text-center">
-          <a href="#" className="text-blue-600">Privacy Policy</a> &nbsp;and&nbsp;
-          <a href="#" className="text-blue-600">Terms & Conditions</a>
+          <Link href="#" className="text-blue-600">Privacy Policy</Link> &nbsp;and&nbsp;
+          <Link href="#" className="text-blue-600">Terms & Conditions</Link>
         </div>
 
       </div>
